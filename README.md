@@ -27,7 +27,7 @@ The objective is to support early diagnosis and improve clinical decision-making
   * `scikit-learn` (machine learning models)
   * `imblearn` (SMOTE for class balancing)
 
-## 🔍 Project Workflow
+## Project Workflow
 
 ### 1. Data Preprocessing
 
