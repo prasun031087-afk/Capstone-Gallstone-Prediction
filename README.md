@@ -81,13 +81,13 @@ The following models were implemented and compared:
    ```
 
 ## Project Structure
-
+```
 ├── data/                    # Dataset files
 ├── notebooks/               # Jupyter notebook
 ├── outputs/                 # Visualizations and results
 ├── reports/                 # Interim and final reports
 └── README.md                # Project documentation
-
+```
 ## Future Improvements
 
 * Hyperparameter tuning for better model performance
