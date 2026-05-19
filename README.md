@@ -20,21 +20,28 @@ The objective is to support early diagnosis and improve clinical decision-making
 ## Technologies Used
 
 * **Python**
-* Libraries:
+* Libraries for data processing and modeling:
 
-  * `pandas`, `numpy` (data processing)
-  * `matplotlib`, `seaborn` (visualization)
-  * `scikit-learn` (machine learning models)
-  * `imblearn` (SMOTE for class balancing)
+  * Python notebook (ipynb) for data analysis and modeling in Google Colab/Jupyter
+  * Pandas for data preprocessing and EDA
+  * NumPy for numerical computations
+  * Scikit-learn for machine learning models
+  * SciPy for statistical hypothesis testing
+  * Matplotlib and Seaborn for visualizations
+  * FastAPI and Uvicorn for API deployment
+  * GitHub for reproducibility and version control
 
 ## Project Workflow
 
 ### 1. Data Preprocessing
 
-* Handling missing values
-* Encoding categorical variables
-* Feature scaling (if applicable)
-* Exploratory Data Analysis (EDA)
+* Checked dataset for missing values
+* Removed duplicate record inconsistencies
+* Validated clinical ranges for features
+* Retained meaningful clinical outliers
+* Standardized features for Logistic Regression
+* Applied stratified train-test split
+* Prevented leakage using ML pipelines
 
 ### 2. Class Imbalance Handling
 
@@ -50,8 +57,10 @@ The following models were implemented and compared:
 
 ## Key Insights
 
-* Certain clinical and demographic factors significantly influence gallstone risk
-* Ensemble models (like Random Forest) tend to perform better than simpler models
+* Certain clinical and demographic factors like CRP, vitamin D, ECF/TBW, AST, lean mass %, visceral fat emerged as the strongest predictors of gallstone risk across both statistical tests and machine learning models.
+* Logistic Regression (LR) and Random Forest (RF) were selected because they provide the best balance between predictive performance, interpretability, robustness, and suitability for a small clinical dataset.
+* Random Forest achieved the strongest overall classification performance demonstrating better generalization and non-linear pattern detection, while Logistic Regression achieved the highest test AUC (0.881) and provided clinically interpretable coefficient-based insights for risk assessment.
+* Detailed body-composition metrics captured gallstone risk more effectively than simple BMI-based obesity classification.
 * Handling class imbalance improves model reliability and prediction accuracy
 
 ## How to Run the Project
@@ -83,16 +92,16 @@ The following models were implemented and compared:
 ## Project Structure
 ```
 ├── data/                    # Dataset files
-├── notebooks/               # Jupyter notebook
-├── reports/                 # Interim and final reports
+├── notebooks/               # Jupyter/Colab notebook
+├── reports/                 # Synopsis, interim and final reports
+├── presentations/           # Presentation deck
 └── README.md                # Project documentation
 ```
 ## Future Improvements
 
-* Hyperparameter tuning for better model performance
-* Integration with real-time clinical systems
-* Deployment as a web-based prediction tool
-* Inclusion of more diverse datasets
+* Same pipeline can be generalized to a broader family of digestive and metabolic conditions that share overlapping risk factors with gallstone disease
+* Integration with real-time clinical systems (EHR - Electronic Health Records system)
+* Inclusion of more diverse datasets.
 
 ## License
 
